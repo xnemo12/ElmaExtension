@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElmaExtension.Console", "ElmaExtension.Console\ElmaExtension.Console.csproj", "{C63AF641-AE89-49A0-AC05-2187B37B777A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElmaExtension", "ElmaExtension\ElmaExtension.csproj", "{B271A7BB-AAC1-4943-BBEA-773A37A4E1A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C63AF641-AE89-49A0-AC05-2187B37B777A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C63AF641-AE89-49A0-AC05-2187B37B777A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C63AF641-AE89-49A0-AC05-2187B37B777A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C63AF641-AE89-49A0-AC05-2187B37B777A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B271A7BB-AAC1-4943-BBEA-773A37A4E1A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B271A7BB-AAC1-4943-BBEA-773A37A4E1A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B271A7BB-AAC1-4943-BBEA-773A37A4E1A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B271A7BB-AAC1-4943-BBEA-773A37A4E1A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
