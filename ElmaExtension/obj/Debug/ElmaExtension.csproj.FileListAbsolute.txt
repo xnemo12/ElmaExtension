@@ -1,0 +1,8 @@
+/Users/eldiablo/Documents/GitHub/ElmaExtension/ElmaExtension/bin/Debug/ElmaExtension.dll
+/Users/eldiablo/Documents/GitHub/ElmaExtension/ElmaExtension/bin/Debug/ElmaExtension.pdb
+/Users/eldiablo/Documents/GitHub/ElmaExtension/ElmaExtension/bin/Debug/Newtonsoft.Json.dll
+/Users/eldiablo/Documents/GitHub/ElmaExtension/ElmaExtension/obj/Debug/ElmaExtension.csprojAssemblyReference.cache
+/Users/eldiablo/Documents/GitHub/ElmaExtension/ElmaExtension/obj/Debug/ElmaExtension.csproj.CoreCompileInputs.cache
+/Users/eldiablo/Documents/GitHub/ElmaExtension/ElmaExtension/obj/Debug/ElmaExtension.csproj.CopyComplete
+/Users/eldiablo/Documents/GitHub/ElmaExtension/ElmaExtension/obj/Debug/ElmaExtension.dll
+/Users/eldiablo/Documents/GitHub/ElmaExtension/ElmaExtension/obj/Debug/ElmaExtension.pdb

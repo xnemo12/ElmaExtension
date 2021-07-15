@@ -1,0 +1,11 @@
+/Users/eldiablo/Documents/GitHub/ElmaExtension/ElmaExtension.Console/bin/Debug/ElmaExtension.Console.exe
+/Users/eldiablo/Documents/GitHub/ElmaExtension/ElmaExtension.Console/bin/Debug/ElmaExtension.Console.pdb
+/Users/eldiablo/Documents/GitHub/ElmaExtension/ElmaExtension.Console/bin/Debug/ElmaExtension.dll
+/Users/eldiablo/Documents/GitHub/ElmaExtension/ElmaExtension.Console/bin/Debug/Newtonsoft.Json.dll
+/Users/eldiablo/Documents/GitHub/ElmaExtension/ElmaExtension.Console/bin/Debug/ElmaExtension.pdb
+/Users/eldiablo/Documents/GitHub/ElmaExtension/ElmaExtension.Console/bin/Debug/Newtonsoft.Json.xml
+/Users/eldiablo/Documents/GitHub/ElmaExtension/ElmaExtension.Console/obj/Debug/ElmaExtension.Console.csprojAssemblyReference.cache
+/Users/eldiablo/Documents/GitHub/ElmaExtension/ElmaExtension.Console/obj/Debug/ElmaExtension.Console.csproj.CoreCompileInputs.cache
+/Users/eldiablo/Documents/GitHub/ElmaExtension/ElmaExtension.Console/obj/Debug/ElmaExtension.Console.csproj.CopyComplete
+/Users/eldiablo/Documents/GitHub/ElmaExtension/ElmaExtension.Console/obj/Debug/ElmaExtension.Console.exe
+/Users/eldiablo/Documents/GitHub/ElmaExtension/ElmaExtension.Console/obj/Debug/ElmaExtension.Console.pdb

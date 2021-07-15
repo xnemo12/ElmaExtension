@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 
-namespace ElmaExtension.HttpClient
+namespace ElmaExtension.HttpClient.Models
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public enum HttpMethod

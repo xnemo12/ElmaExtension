@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using ElmaExtension.HttpClient;
 using ElmaExtension.Logger;
+using ElmaExtension.Serializer;
 
 namespace ElmaExtension.Console
 {
@@ -10,23 +13,16 @@ namespace ElmaExtension.Console
     {
         public static void Main(string[] args)
         {
-            var context = new Context();
-
-            var logger = new ExceptionLogger(nameof(Main), context);
-
-            var httpClient = new HttpClient.ElmaHttpClient(@"http://192.168.158.11:8080/services/anorhubms/api/anor-hub");
+            var xml = File.ReadAllText("test.xml");
+            var json = File.ReadAllText("test.json");
             
-            httpClient.AddBearerTokenAuth("asdaddwqweq");
-            var result = httpClient.Post("hello");
-            
-            System.Console.WriteLine(result.Result);
-            System.Console.WriteLine(result.Exception);
+            dynamic qqq;
+
+            object xmlObj = ElmaConverter.XmlDeserializeObject<dynamic>(xml);
+
+            System.Console.WriteLine(string.Join("\r\n", xmlObj.GetType().GetProperties()
+                .Select(x => $"name - {x.Name} - value - {x.GetValue(xmlObj, new object[]{})}")));
         }
         
-    }
-
-    public class Context
-    {
-        public string debug { get; set; }    
     }
 }
