@@ -1,15 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Net;
 using System.Text;
+using ElmaHttpClient.Contract;
+using ElmaHttpClient.Models;
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable once InconsistentNaming
 
-namespace ElmaExtension.HttpClient
+namespace ElmaHttpClient
 {
-    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
-    [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
-    public partial class ElmaHttpClient
+    public partial class ElmaHttpClient : IElmaHttpClient
     {
         public string Url { get; set; }
         public int TimeOut { get; set; } = 20000;
@@ -19,7 +20,6 @@ namespace ElmaExtension.HttpClient
         public ElmaHttpClient() { }
         public ElmaHttpClient(string url) => Url = url;
 
-        [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
         public static HttpResult BaseHttpRequest(HttpTemplate template,Dictionary<string, string> header)
         {
             var result = new HttpResult();
@@ -53,12 +53,11 @@ namespace ElmaExtension.HttpClient
                 
                 using (var responseStream = responseClient.GetResponseStream())
                 {
+                    // ReSharper disable once AssignNullToNotNullAttribute
                     var streamReader = new StreamReader(responseStream, Encoding.UTF8);
 
                     result.Result = streamReader.ReadToEnd();
                 }
-                
-                result.IsSuccess = true;
             }
             catch (Exception e)
             {
@@ -68,12 +67,11 @@ namespace ElmaExtension.HttpClient
             return result;
         }
 
-        public void AddBearerTokenAuth(string token)
+        public void AddJWTAuth(string token)
         {
             if(!Headers.TryGetValue("Authorization", out _))
                 Headers.Add("Authorization", $"Bearer {token}");
         }
-        
         public void AddBasicAuth(string login, string password)
         {
             if(!Headers.TryGetValue("Authorization", out _))

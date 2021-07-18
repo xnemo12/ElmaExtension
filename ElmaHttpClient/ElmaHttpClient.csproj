@@ -4,11 +4,11 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{C63AF641-AE89-49A0-AC05-2187B37B777A}</ProjectGuid>
-        <OutputType>Exe</OutputType>
+        <ProjectGuid>{9312DE70-B936-434C-8E23-D402E567174B}</ProjectGuid>
+        <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>ElmaExtension.Console</RootNamespace>
-        <AssemblyName>ElmaExtension.Console</AssemblyName>
+        <RootNamespace>ElmaHttpClient</RootNamespace>
+        <AssemblyName>ElmaHttpClient</AssemblyName>
         <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
@@ -32,9 +32,8 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
-          <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
-          <Private>True</Private>
+        <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+          <HintPath>..\DepDll\Newtonsoft.Json.dll</HintPath>
         </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
@@ -42,29 +41,15 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Program.cs" />
+        <Compile Include="Contract\IElmaHttpClient.cs" />
+        <Compile Include="ElmaHttpClient.cs" />
+        <Compile Include="ElmaHttpFactory.cs" />
+        <Compile Include="HttpClientMethods.cs" />
+        <Compile Include="Models\HttpContentType.cs" />
+        <Compile Include="Models\HttpMethod.cs" />
+        <Compile Include="Models\HttpResult.cs" />
+        <Compile Include="Models\HttpTemplate.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <ProjectReference Include="..\ElmaExtension\ElmaExtension.csproj">
-        <Project>{b271a7bb-aac1-4943-bbea-773a37a4e1a9}</Project>
-        <Name>ElmaExtension</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\ElmaHttpClient\ElmaHttpClient.csproj">
-        <Project>{9312de70-b936-434c-8e23-d402e567174b}</Project>
-        <Name>ElmaHttpClient</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\ElmaLogger\ElmaLogger.csproj">
-        <Project>{fa65fa18-dd44-4375-a370-6ee47221f729}</Project>
-        <Name>ElmaLogger</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\ElmaSerializer\ElmaSerializer.csproj">
-        <Project>{43ce0d07-3de6-4bef-93bf-6f170483d1c7}</Project>
-        <Name>ElmaSerializer</Name>
-      </ProjectReference>
-    </ItemGroup>
-    <ItemGroup>
-      <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

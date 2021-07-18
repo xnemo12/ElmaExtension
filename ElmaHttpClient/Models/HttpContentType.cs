@@ -1,6 +1,6 @@
 using System;
 
-namespace ElmaExtension.HttpClient
+namespace ElmaHttpClient.Models
 {
     public enum HttpContentType
     {

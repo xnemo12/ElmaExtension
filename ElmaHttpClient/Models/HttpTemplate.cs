@@ -1,4 +1,4 @@
-namespace ElmaExtension.HttpClient
+namespace ElmaHttpClient.Models
 {
     public class HttpTemplate
     {

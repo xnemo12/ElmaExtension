@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ElmaExtension")]
+[assembly: AssemblyTitle("ElmaHttpClient")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ElmaExtension")]
+[assembly: AssemblyProduct("ElmaHttpClient")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("B271A7BB-AAC1-4943-BBEA-773A37A4E1A9")]
+[assembly: Guid("9312DE70-B936-434C-8E23-D402E567174B")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -5,7 +5,10 @@ using System.Xml.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace ElmaExtension.HttpClient
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Global
+
+namespace ElmaHttpClient.Models
 {
     public class HttpResult
     {

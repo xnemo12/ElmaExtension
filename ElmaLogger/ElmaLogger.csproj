@@ -4,11 +4,11 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{B271A7BB-AAC1-4943-BBEA-773A37A4E1A9}</ProjectGuid>
+        <ProjectGuid>{FA65FA18-DD44-4375-A370-6EE47221F729}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>ElmaExtension</RootNamespace>
-        <AssemblyName>ElmaExtension</AssemblyName>
+        <RootNamespace>ElmaLogger</RootNamespace>
+        <AssemblyName>ElmaLogger</AssemblyName>
         <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
@@ -32,26 +32,14 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
-          <HintPath>Newtonsoft.Json.dll</HintPath>
-        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="HttpClient\ElmaHttpClient.cs" />
-        <Compile Include="HttpClient\HttpClientMethods.cs" />
-        <Compile Include="HttpClient\HttpContentType.cs" />
-        <Compile Include="HttpClient\HttpMethod.cs" />
-        <Compile Include="HttpClient\HttpResult.cs" />
-        <Compile Include="HttpClient\HttpTemplate.cs" />
-        <Compile Include="Logger\Logger.cs" />
+        <Compile Include="Logger.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

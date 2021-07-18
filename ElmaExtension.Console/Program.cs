@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using ElmaExtension.HttpClient;
-using ElmaExtension.Logger;
+using ElmaLogger;
 
 namespace ElmaExtension.Console
 {
@@ -14,9 +13,9 @@ namespace ElmaExtension.Console
 
             var logger = new ExceptionLogger(nameof(Main), context);
 
-            var httpClient = new HttpClient.ElmaHttpClient(@"http://192.168.158.11:8080/services/anorhubms/api/anor-hub");
+            var httpClient = new ElmaHttpClient.ElmaHttpClient(@"http://192.168.158.11:8080/services/anorhubms/api/anor-hub");
             
-            httpClient.AddBearerTokenAuth("asdaddwqweq");
+            httpClient.AddJWTAuth("asdaddwqweq");
             var result = httpClient.Post("hello");
             
             System.Console.WriteLine(result.Result);

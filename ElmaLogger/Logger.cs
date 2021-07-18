@@ -1,10 +1,11 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text.RegularExpressions;
-// ReSharper disable All
 
-namespace ElmaExtension.Logger
+namespace ElmaLogger
 {
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
     public class ExceptionLogger
     {
         private readonly object _context;
@@ -114,7 +115,7 @@ namespace ElmaExtension.Logger
             
             if (type.IsValueType)
             {
-                return data.GetHashCode() == default(T).GetHashCode();
+                return data.GetHashCode() == default(T)?.GetHashCode();
             }
 
             return false;
