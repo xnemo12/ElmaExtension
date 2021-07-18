@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using ElmaExtension.HttpClient.Models;
 
 namespace ElmaExtension.HttpClient
 {
@@ -107,6 +106,12 @@ namespace ElmaExtension.HttpClient
 
         public HttpResult Delete(string body)
             => Post(Url, body);
+
+        public Task<HttpResult> DeleteAsync(string url, string body)
+            => Task.Factory.StartNew(() => Post(url, body));
+        
+        public Task<HttpResult> DeleteAsync(string body)
+            => Task.Factory.StartNew(() => Post(Url, body));
 
         #endregion
     }

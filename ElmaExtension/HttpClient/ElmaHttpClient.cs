@@ -4,14 +4,12 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Net;
 using System.Text;
-using ElmaExtension.HttpClient.Contract;
-using ElmaExtension.HttpClient.Models;
 
 namespace ElmaExtension.HttpClient
 {
     [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
     [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
-    public partial class ElmaHttpClient : IElmaHttpClient
+    public partial class ElmaHttpClient
     {
         public string Url { get; set; }
         public int TimeOut { get; set; } = 20000;

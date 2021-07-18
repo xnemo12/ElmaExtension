@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace ElmaExtension.HttpClient.Models
+namespace ElmaExtension.HttpClient
 {
     public class HttpResult
     {
