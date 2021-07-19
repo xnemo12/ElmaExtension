@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
 using ElmaLogger;
+using ElmaSerializer;
 
 namespace ElmaExtension.Console
 {
@@ -9,17 +8,13 @@ namespace ElmaExtension.Console
     {
         public static void Main(string[] args)
         {
-            var context = new Context();
+            var conext = new Context();
 
-            var logger = new ExceptionLogger(nameof(Main), context);
+            var logger = LoggerFactory.Create("main", conext);
+            
+            logger.NoEx<string>(() => null, "test");
 
-            var httpClient = new ElmaHttpClient.ElmaHttpClient(@"http://192.168.158.11:8080/services/anorhubms/api/anor-hub");
-            
-            httpClient.AddJWTAuth("asdaddwqweq");
-            var result = httpClient.Post("hello");
-            
-            System.Console.WriteLine(result.Result);
-            System.Console.WriteLine(result.Exception);
+            System.Console.WriteLine(conext.JsonSerializeObject().JsonToXml());
         }
         
     }

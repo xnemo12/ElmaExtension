@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+// ReSharper disable MemberCanBePrivate.Global
+
 namespace ElmaExtensionMethods
 {
     /// <summary>
@@ -23,13 +25,12 @@ namespace ElmaExtensionMethods
         /// <summary>
         /// Returns an empty string if given a null string, otherwise returns given string.
         /// </summary>
-        
         public static string EmptyIfNull(this string s) => s ?? string.Empty;
 
         /// <summary>
         /// Determines whether the string only consists of digits.
         /// </summary>
-        public static bool IsNumeric( this string s)
+        public static bool IsNumeric(this string s)
         {
             return s.ToCharArray().All(char.IsDigit);
         }
@@ -37,7 +38,7 @@ namespace ElmaExtensionMethods
         /// <summary>
         /// Determines whether the string only consists of letters.
         /// </summary>
-        public static bool IsAlphabetic( this string s)
+        public static bool IsAlphabetic(this string s)
         {
             return s.ToCharArray().All(char.IsLetter);
         }
@@ -45,7 +46,7 @@ namespace ElmaExtensionMethods
         /// <summary>
         /// Determines whether the string only consists of letters and/or digits.
         /// </summary>
-        public static bool IsAlphanumeric( this string s)
+        public static bool IsAlphanumeric(this string s)
         {
             return s.ToCharArray().All(char.IsLetterOrDigit);
         }
@@ -53,8 +54,7 @@ namespace ElmaExtensionMethods
         /// <summary>
         /// Removes all leading occurrences of a substring in the given string.
         /// </summary>
-        
-        public static string TrimStart( this string s,  string sub,
+        public static string TrimStart(this string s, string sub,
             StringComparison comparison = StringComparison.Ordinal)
         {
             while (s.StartsWith(sub, comparison))
@@ -66,8 +66,7 @@ namespace ElmaExtensionMethods
         /// <summary>
         /// Removes all trailing occurrences of a substring in the given string.
         /// </summary>
-        
-        public static string TrimEnd( this string s,  string sub,
+        public static string TrimEnd(this string s, string sub,
             StringComparison comparison = StringComparison.Ordinal)
         {
             while (s.EndsWith(sub, comparison))
@@ -79,8 +78,7 @@ namespace ElmaExtensionMethods
         /// <summary>
         /// Removes all leading and trailing occurrences of a substring in the given string.
         /// </summary>
-        
-        public static string Trim( this string s,  string sub,
+        public static string Trim(this string s, string sub,
             StringComparison comparison = StringComparison.Ordinal)
         {
             return s.TrimStart(sub, comparison).TrimEnd(sub, comparison);
@@ -89,8 +87,7 @@ namespace ElmaExtensionMethods
         /// <summary>
         /// Reverses order of characters in a string.
         /// </summary>
-        
-        public static string Reverse( this string s)
+        public static string Reverse(this string s)
         {
             // If length is 1 char or less - return same string
             if (s.Length <= 1)
@@ -107,8 +104,7 @@ namespace ElmaExtensionMethods
         /// <summary>
         /// Returns a string formed by repeating the given string given number of times.
         /// </summary>
-        
-        public static string Repeat( this string s, int count)
+        public static string Repeat(this string s, int count)
         {
             // If count is 0 - return empty string
             if (count == 0)
@@ -125,7 +121,6 @@ namespace ElmaExtensionMethods
         /// <summary>
         /// Returns a string formed by repeating the given character given number of times.
         /// </summary>
-        
         public static string Repeat(this char c, int count)
         {
             // If count is 0 - return empty string
@@ -138,8 +133,7 @@ namespace ElmaExtensionMethods
         /// <summary>
         /// Returns a new string in which all occurrences of a specified string in the current instance are replaced with another specified string.
         /// </summary>
-        
-        public static string Replace( this string s,  string oldValue,  string newValue,
+        public static string Replace(this string s, string oldValue, string newValue,
             StringComparison comparison = StringComparison.Ordinal)
         {
             var sb = new StringBuilder();
@@ -171,8 +165,7 @@ namespace ElmaExtensionMethods
         /// <summary>
         /// Retrieves a substring that ends at the position of first occurrence of the given other string.
         /// </summary>
-        
-        public static string SubstringUntil( this string s,  string sub,
+        public static string SubstringUntil(this string s, string sub,
             StringComparison comparison = StringComparison.Ordinal)
         {
             // Find substring
@@ -189,8 +182,7 @@ namespace ElmaExtensionMethods
         /// <summary>
         /// Retrieves a substring that starts at the position of first occurrence of the given other string.
         /// </summary>
-        
-        public static string SubstringAfter( this string s,  string sub,
+        public static string SubstringAfter(this string s, string sub,
             StringComparison comparison = StringComparison.Ordinal)
         {
             // Find substring
@@ -207,8 +199,7 @@ namespace ElmaExtensionMethods
         /// <summary>
         /// Retrieves a substring that ends at the position of last occurrence of the given other string.
         /// </summary>
-        
-        public static string SubstringUntilLast( this string s,  string sub,
+        public static string SubstringUntilLast(this string s, string sub,
             StringComparison comparsion = StringComparison.Ordinal)
         {
             // Find substring
@@ -225,8 +216,7 @@ namespace ElmaExtensionMethods
         /// <summary>
         /// Retrieves a substring that starts at the position of last occurrence of the given other string.
         /// </summary>
-        
-        public static string SubstringAfterLast( this string s,  string sub,
+        public static string SubstringAfterLast(this string s, string sub,
             StringComparison comparsion = StringComparison.Ordinal)
         {
             // Find substring
@@ -243,8 +233,7 @@ namespace ElmaExtensionMethods
         /// <summary>
         /// Discards null, empty and whitespace strings from a sequence.
         /// </summary>
-        
-        public static IEnumerable<string> ExceptNullOrWhiteSpace( this IEnumerable<string> source)
+        public static IEnumerable<string> ExceptNullOrWhiteSpace(this IEnumerable<string> source)
         {
             return source.Where(s => !IsNullOrWhiteSpace(s));
         }
@@ -252,8 +241,7 @@ namespace ElmaExtensionMethods
         /// <summary>
         /// Splits string using given separators, discarding empty entries.
         /// </summary>
-        
-        public static string[] Split( this string s,  params string[] separators)
+        public static string[] Split(this string s, params string[] separators)
         {
             return s.Split(separators, StringSplitOptions.RemoveEmptyEntries);
         }
@@ -261,8 +249,7 @@ namespace ElmaExtensionMethods
         /// <summary>
         /// Splits string using given separators, discarding empty entries.
         /// </summary>
-        
-        public static string[] Split( this string s,  params char[] separators)
+        public static string[] Split(this string s, params char[] separators)
         {
             return s.Split(separators, StringSplitOptions.RemoveEmptyEntries);
         }
@@ -270,7 +257,6 @@ namespace ElmaExtensionMethods
         /// <summary>
         /// Returns a string formed by joining elements of a sequence using the given separator.
         /// </summary>
-        
         public static string JoinToString<T>(this IEnumerable<T> source, string separator)
         {
             return string.Join(separator, source);
