@@ -35,6 +35,7 @@ namespace ElmaLogger
             };
         }
         public ElmaLogger(string methodName) : this() => MethodName = methodName;
+        public ElmaLogger(object context) : this() => Context = context;
         public ElmaLogger(string methodName, object context) : this(methodName) => Context = context;
 
         public void WriteLog(
@@ -51,11 +52,12 @@ namespace ElmaLogger
                 comment = $"({comment}) - ";
 
             // if has method name
-            if (MethodName != "")
-                MethodName = $"({MethodName}) - ";
+            var method = MethodName;
+            if (method != "")
+                method = $"({method}) - ";
 
             // create log value
-            log = $"{DateTime.Now} - {level} - {MethodName}{comment}{log}";
+            log = $"{DateTime.Now} - {level} - {method}{comment}{log}";
             
             // write LogsArray properties
             if (Context == null)
