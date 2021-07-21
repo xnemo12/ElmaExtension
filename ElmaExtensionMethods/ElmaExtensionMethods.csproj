@@ -41,6 +41,8 @@
         <Compile Include="EncodingExtensions.cs" />
         <Compile Include="EnumerableExtensions.cs" />
         <Compile Include="EnumExtensions.cs" />
+        <Compile Include="Models\StringValueTryParse.cs" />
+        <Compile Include="Models\TryParseResult.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="StringExtensions.cs" />
     </ItemGroup>

@@ -280,5 +280,52 @@ namespace ElmaExtensionMethods
         {
             return source.GroupContiguous((buffer, _) => groupPredicate(buffer));
         }
+
+        /// <summary>
+        /// Convert Enumerator to list
+        /// </summary>
+        /// <param name="source">Enumerator source</param>
+        /// <typeparam name="T">Type</typeparam>
+        /// <returns></returns>
+        public static IList<T> ToList<T>(this IEnumerator<T> source)
+        {
+            var list = new List<T>();
+
+            while (source.MoveNext())
+            {
+                list.Add(source.Current);
+            }
+
+            return list;
+        }
+        
+        public static IEnumerable<T> Random<T>(this IEnumerable<T> list, int count)
+        {
+            if (list == null)
+                throw new ArgumentNullException(nameof(list));
+            
+            var asReadOnlyList = list as IList<T> ?? list.ToArray();
+            
+            if (asReadOnlyList.Count == 0)
+                yield break;
+            if (count < 1)
+                throw new ArgumentOutOfRangeException(nameof(count));
+
+            var rng = new Random();
+
+            for (var i = 0; i < count; i++)
+            {
+                var index = rng.Next(0, asReadOnlyList.Count);
+                yield return asReadOnlyList[index];
+            }
+        }
+
+        public static IEnumerable<T> Random<T>(this IEnumerable<T> list)
+            => Random(list, list.Count());
+
+        public static string JoinToString(this IEnumerable<string> source, string separator)
+        {
+            return string.Join(separator, source);
+        }
     }
 }

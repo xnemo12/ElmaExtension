@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+// ReSharper disable CognitiveComplexity
+// ReSharper disable NotAccessedVariable
 
 // ReSharper disable MemberCanBePrivate.Global
 
@@ -261,5 +263,107 @@ namespace ElmaExtensionMethods
         {
             return string.Join(separator, source);
         }
+        
+        /// <summary>
+		/// Formats string as string.Format() but the parameter index is optional and parameter meta is allowed.
+		/// </summary>
+		/// <example>"{} is a {1}".format("this", "test")</example>
+		public static string Format(this string format, params object[] args)
+		{
+			var buffer = new StringBuilder(format);
+			var i = 0;
+			var param = 0;
+			var paramMetaToIndexMap = new Dictionary<string, string>();
+			while (i < buffer.Length)
+			{
+				// close curly before open curly
+				if (buffer[i] == '}')
+				{
+					// skip escaped curly "}}", else break
+					if (i + 1 < buffer.Length && buffer[i + 1] == '}')
+					{
+						i += 2;
+						continue;
+					}
+
+					break;
+				}
+				// stop at '{'
+				if (buffer[i] != '{')
+				{
+					i++;
+					continue;
+				}
+				// skip escaped curly "{{"
+				if (i + 1 < buffer.Length && buffer[i + 1] == '{')
+				{
+					i += 2;
+					continue;
+				}
+				var start = i;
+				while (i < buffer.Length && buffer[i] != '}')
+				{
+					i++;
+				}
+				// open curly is not matched, break
+				if (i == buffer.Length)
+				{
+					break;
+				}
+				var end = i;
+				//// at this point buffer[start..end] has format field
+				//// insert parameter index only if not present
+				////     so insert for:
+				////     se  s  e  s            e  s    e  s      e  s                e
+				////     {}  {:2}  {,10:#,##0.00}  {test}  {test:2}  {test,10:#,##0.00}
+				////     and do not insert for:
+				////     s e  s   e  s             e
+				////     {0}  {0:2}  {0,10:#,##0.00}
+				// find the meta substring
+				var metastart = start + 1;
+				var metaend = metastart;
+				while (buffer[metaend] != '}' && buffer[metaend] != ':' && buffer[metaend] != ',')
+				{
+					metaend++;
+				}
+				var paramMeta = buffer.ToString(metastart, metaend - metastart).Trim();
+				// insert param only if meta is not int
+				int ignore;
+				if (!int.TryParse(paramMeta, out ignore))
+				{
+					string paramIndex;
+					// do not insert "" into meta->index map
+					if (paramMeta == "")
+					{
+						paramIndex = param.ToString();
+						param++;
+					}
+					else
+					{
+						// remove meta
+						buffer.Remove(metastart, paramMeta.Length);
+						// insert param index into meta->index map if not exists
+						if (!paramMetaToIndexMap.ContainsKey(paramMeta))
+						{
+							paramMetaToIndexMap[paramMeta] = param.ToString();
+							param++;
+						}
+						// do not increment param as param index is reused
+						paramIndex = paramMetaToIndexMap[paramMeta];
+					}
+					// insert index
+					buffer.Insert(metastart, paramIndex);
+					// adjust end as buffer is removed from and inserted into
+					end += -paramMeta.Length + paramIndex.Length;
+				}
+				else
+				{
+					param++;
+				}
+				i = end + 1; // i++ does not work
+			}
+			var formatConverted = buffer.ToString();
+			return string.Format(formatConverted, args);
+		}
     }
 }

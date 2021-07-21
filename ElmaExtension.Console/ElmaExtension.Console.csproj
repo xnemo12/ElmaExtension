@@ -45,6 +45,10 @@
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\ElmaExtensionMethods\ElmaExtensionMethods.csproj">
+        <Project>{61bfe3ca-f755-4e78-8050-ac7cff10a876}</Project>
+        <Name>ElmaExtensionMethods</Name>
+      </ProjectReference>
       <ProjectReference Include="..\ElmaExtension\ElmaExtension.csproj">
         <Project>{b271a7bb-aac1-4943-bbea-773a37a4e1a9}</Project>
         <Name>ElmaExtension</Name>
