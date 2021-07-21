@@ -1,4 +1,6 @@
-namespace ElmaExtensionMethods.Models
+using ElmaExtensionMethods.Models;
+
+namespace ElmaExtensionMethods
 {
     public static class StringValueTryParse
     {
