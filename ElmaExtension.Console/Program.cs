@@ -11,15 +11,8 @@ namespace ElmaExtension.Console
     {
         public static void Main(string[] args)
         {
-            var list = new List<string>
-            {
-                "1",
-                "2",
-                "3",
-                "4"
-            }.Random();
             
-            System.Console.WriteLine(list.JoinToString(" - "));
+            System.Console.WriteLine("{0} test {1}".Format(100.0000979,DateTime.Now.ToShortDateString()));
         }
         
     }

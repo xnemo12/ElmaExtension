@@ -365,5 +365,14 @@ namespace ElmaExtensionMethods
 			var formatConverted = buffer.ToString();
 			return string.Format(formatConverted, args);
 		}
+
+        /// <summary>
+        /// Default string.Format()
+        /// </summary>
+        /// <param name="format"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public static string DefaultFormat(this string format, params object[] args)
+	        => string.Format(format, args);
     }
 }
