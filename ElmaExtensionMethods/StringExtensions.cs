@@ -14,15 +14,32 @@ namespace ElmaExtensionMethods
     /// </summary>
     public static class StringExtensions
     {
-        /// <summary>
+        /*/// <summary>
         /// Indicates whether a string is null or empty.
         /// </summary>
-        public static bool IsNullOrEmpty(this string s) => string.IsNullOrEmpty(s);
+        public static bool IsNullOrEmpty(this string s) => string.IsNullOrEmpty(s);*/
 
-        /// <summary>
+        /*/// <summary>
         /// Indicates whether a string is either null, empty, or whitespace.
         /// </summary>
-        public static bool IsNullOrWhiteSpace(this string s) => string.IsNullOrWhiteSpace(s);
+        public static bool IsNullOrWhiteSpace(this string s) => string.IsNullOrWhiteSpace(s);*/
+        
+        /*/// <summary>
+        /// Returns a string formed by repeating the given string given number of times.
+        /// </summary>
+        public static string Repeat(this string s, int count)
+        {
+            // If count is 0 - return empty string
+            if (count == 0)
+                return string.Empty;
+
+            // Concat a new string
+            var sb = new StringBuilder(s.Length * count);
+            for (var i = 0; i < count; i++)
+                sb.Append(s);
+
+            return sb.ToString();
+        }*/
 
         /// <summary>
         /// Returns an empty string if given a null string, otherwise returns given string.
@@ -99,23 +116,6 @@ namespace ElmaExtensionMethods
             var sb = new StringBuilder(s.Length);
             for (var i = s.Length - 1; i >= 0; i--)
                 sb.Append(s[i]);
-
-            return sb.ToString();
-        }
-
-        /// <summary>
-        /// Returns a string formed by repeating the given string given number of times.
-        /// </summary>
-        public static string Repeat(this string s, int count)
-        {
-            // If count is 0 - return empty string
-            if (count == 0)
-                return string.Empty;
-
-            // Concat a new string
-            var sb = new StringBuilder(s.Length * count);
-            for (var i = 0; i < count; i++)
-                sb.Append(s);
 
             return sb.ToString();
         }
@@ -237,7 +237,7 @@ namespace ElmaExtensionMethods
         /// </summary>
         public static IEnumerable<string> ExceptNullOrWhiteSpace(this IEnumerable<string> source)
         {
-            return source.Where(s => !IsNullOrWhiteSpace(s));
+            return source.Where(s => !string.IsNullOrWhiteSpace(s));
         }
 
         /// <summary>
