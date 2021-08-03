@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+
 // ReSharper disable MemberCanBePrivate.Global
 
 namespace ElmaExtensionMethods
@@ -326,6 +328,33 @@ namespace ElmaExtensionMethods
         public static string JoinToString(this IEnumerable<string> source, string separator)
         {
             return string.Join(separator, source);
+        }
+
+        public static IEnumerable<T> TakeFromIndex<T>(this IEnumerable<T> source, int startIndex, int endIndex)
+        {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+            
+            var list = source as IList<T> ?? source.ToArray();
+            
+            if (list.Count == 0)
+                yield break;
+            if (startIndex == endIndex)
+                yield break;
+            if (startIndex < 0 || endIndex < 0)
+                throw new ArgumentOutOfRangeException($"{nameof(startIndex)} or {nameof(endIndex)} < 1");
+            
+            if(startIndex > list.Count || endIndex > list.Count)
+                throw new ArgumentOutOfRangeException($"{nameof(startIndex)} or {nameof(endIndex)} > {nameof(source)}");
+
+            var takeType = startIndex < endIndex;
+
+            for (var i = startIndex; i != endIndex;)
+            {
+                yield return list[i];
+                
+                _ = takeType ? i++ : i--;
+            }
         }
     }
 }

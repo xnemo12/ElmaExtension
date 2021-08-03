@@ -49,10 +49,6 @@
         <Project>{61bfe3ca-f755-4e78-8050-ac7cff10a876}</Project>
         <Name>ElmaExtensionMethods</Name>
       </ProjectReference>
-      <ProjectReference Include="..\ElmaExtension\ElmaExtension.csproj">
-        <Project>{b271a7bb-aac1-4943-bbea-773a37a4e1a9}</Project>
-        <Name>ElmaExtension</Name>
-      </ProjectReference>
       <ProjectReference Include="..\ElmaHttpClient\ElmaHttpClient.csproj">
         <Project>{9312de70-b936-434c-8e23-d402e567174b}</Project>
         <Name>ElmaHttpClient</Name>

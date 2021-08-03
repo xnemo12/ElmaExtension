@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Xml;
 using ElmaExtensionMethods;
 using ElmaHttpClient;
 using ElmaLogger;
@@ -11,8 +14,24 @@ namespace ElmaExtension.Console
     {
         public static void Main(string[] args)
         {
+            var list = new List<int>
+            {
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+            };
             
-            System.Console.WriteLine("{0} test {1}".Format(100.0000979,DateTime.Now.ToShortDateString()));
+            System.Console.WriteLine(list.TakeFromIndex(10, 1)
+                .Select(x => x.ToString())
+                .JoinToString(" - "));
         }
         
     }
