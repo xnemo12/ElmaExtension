@@ -45,6 +45,7 @@
         <Compile Include="ElmaHttpClient.cs" />
         <Compile Include="ElmaHttpFactory.cs" />
         <Compile Include="HttpClientMethods.cs" />
+        <Compile Include="Models\ElmaHttpException.cs" />
         <Compile Include="Models\HttpContentType.cs" />
         <Compile Include="Models\HttpMethod.cs" />
         <Compile Include="Models\HttpResult.cs" />

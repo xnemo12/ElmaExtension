@@ -61,6 +61,21 @@ namespace ElmaHttpClient
             }
             catch (Exception e)
             {
+                if (e is WebException exception)
+                {
+                    var response = (HttpWebResponse)exception.Response;
+                    
+                    using (var responseStream = response.GetResponseStream())
+                    {
+                        // ReSharper disable once AssignNullToNotNullAttribute
+                        var streamReader = new StreamReader(responseStream, Encoding.UTF8);
+
+                        result.StatusCode = response.StatusCode;
+                        
+                        result.Result = streamReader.ReadToEnd();
+                    }
+                }
+            
                 result.Exception = e;
             }
 
