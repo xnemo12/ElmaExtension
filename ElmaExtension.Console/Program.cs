@@ -22,11 +22,11 @@ namespace ElmaExtension.Console
 
         private static void ElmaMethod(Context context)
         {
-            var httpClient = ElmaHttpFactory.Create("http://192.168.158.11:8080/services/anorhubms/api/anor-hub");
+            var httpClient = ElmaHttpFactory.Create("https://localhost:5001/WeatherForecast");
 
-            var result = httpClient.Post();
+            var result = httpClient.Get();
 
-            System.Console.WriteLine(result.Result);
+            System.Console.WriteLine(result.StatusCode);
         }
     }
 
