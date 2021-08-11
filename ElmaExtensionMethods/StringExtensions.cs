@@ -374,5 +374,8 @@ namespace ElmaExtensionMethods
         /// <returns></returns>
         public static string DefaultFormat(this string format, params object[] args)
 	        => string.Format(format, args);
+
+        public static bool Contains(this string str, string[] filters)
+			=> filters.Any(str.Contains);
     }
 }
