@@ -4,11 +4,11 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{C63AF641-AE89-49A0-AC05-2187B37B777A}</ProjectGuid>
-        <OutputType>Exe</OutputType>
+        <ProjectGuid>{F5339EFD-0DE7-422C-9DFE-87D5E6B385A9}</ProjectGuid>
+        <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>ElmaExtension.Console</RootNamespace>
-        <AssemblyName>ElmaExtension.Console</AssemblyName>
+        <RootNamespace>ElmaTelegram</RootNamespace>
+        <AssemblyName>ElmaTelegram</AssemblyName>
         <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
@@ -32,38 +32,42 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
-          <HintPath>..\..\..\..\OneDrive - Anor Bank\Документы\GitHub\ElmaExtension\DepDll\Newtonsoft.Json.dll</HintPath>
-        </Reference>
+        <Reference Include="mscorlib" />
         <Reference Include="System" />
+        <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+          <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
+        <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+          <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="System.Numerics" />
+        <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+          <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+          <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="System.Text.Encodings.Web, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+          <HintPath>..\packages\System.Text.Encodings.Web.5.0.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Program.cs" />
+        <Compile Include="Models\Bot.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="TelegramBot.cs" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\ElmaExtensionMethods\ElmaExtensionMethods.csproj">
-        <Project>{61bfe3ca-f755-4e78-8050-ac7cff10a876}</Project>
-        <Name>ElmaExtensionMethods</Name>
-      </ProjectReference>
       <ProjectReference Include="..\ElmaHttpClient\ElmaHttpClient.csproj">
         <Project>{9312de70-b936-434c-8e23-d402e567174b}</Project>
         <Name>ElmaHttpClient</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\ElmaLogger\ElmaLogger.csproj">
-        <Project>{fa65fa18-dd44-4375-a370-6ee47221f729}</Project>
-        <Name>ElmaLogger</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\ElmaSerializer\ElmaSerializer.csproj">
-        <Project>{43ce0d07-3de6-4bef-93bf-6f170483d1c7}</Project>
-        <Name>ElmaSerializer</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\ElmaTelegram\ElmaTelegram.csproj">
-        <Project>{f5339efd-0de7-422c-9dfe-87d5e6b385a9}</Project>
-        <Name>ElmaTelegram</Name>
       </ProjectReference>
     </ItemGroup>
     <ItemGroup>

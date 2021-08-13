@@ -8,6 +8,7 @@ using ElmaExtensionMethods;
 using ElmaHttpClient;
 using ElmaLogger;
 using ElmaSerializer;
+using ElmaTelegram;
 
 namespace ElmaExtension.Console
 {
@@ -15,30 +16,13 @@ namespace ElmaExtension.Console
     {
         public static void Main(string[] args)
         {
-            var context = new Context();
+            var telegram = new TelegramBot(new TelegramOptions()
+            {
+                ChatId = "-532658423",
+                Token = "1815800309:AAGIgDMEWWCJFc4BNTHuCxWWn_LtZDhlR7Y"
+            });
 
-            ElmaMethod(context);
+            telegram.SendMessage("sadasdasdsadd");
         }
-
-        private static void ElmaMethod(Context context)
-        {
-            var httpClient = ElmaHttpFactory.Create("https://localhost:5001/WeatherForecast");
-
-            var result = httpClient.Get();
-
-            System.Console.WriteLine(result.StatusCode);
-        }
-    }
-
-    public class Context
-    {
-        public string debug { get; set; }
-        public string Debug2 { get; set; }
-    }
-    
-    public class User
-    {
-        public string username { get; set; }
-        public string password { get; set; }
     }
 }

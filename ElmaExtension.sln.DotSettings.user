@@ -6,5 +6,6 @@
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="C:\Users\user\OneDrive - Anor Bank\Документы\ElmaExtension\ElmaExtension\Newtonsoft.Json.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\Users\AnorBank\Documents\GitHub\ElmaExtension\DepDll\Newtonsoft.Json.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\s.saifiyev\Documents\GitHub\ElmaExtension\packages\System.Text.Encodings.Web.5.0.1\lib\net461\System.Text.Encodings.Web.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>
 	</wpf:ResourceDictionary>
