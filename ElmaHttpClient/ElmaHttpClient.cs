@@ -58,6 +58,8 @@ namespace ElmaHttpClient
 
                     result.Result = streamReader.ReadToEnd();
                 }
+
+                responseClient.Close();
             }
             catch (Exception e)
             {
